@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 60%;
+            font-size: 30px;
+            font-family: 'Times New Roman', Times, serif;
+            color: #0da1ce;
+        }
+        input{
+            border-radius: 50px;
+            background-color: skyblue;
+            padding: 2%;
+            
+        }
+        button{
+            border-radius: 50px;
+            background-color: #80cee5;
+            padding: 2%;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function formValidation(){
+            var username=document.forms["myForm"]["username"].value;
+            var email=document.forms["myForm"]["email"].value;
+            var password=document.forms["myForm"]["password"].value;
+            var confirmPassword=document.forms["myForm"]["confirmPassword"].value;
+
+            //regex
+            var usernameRegex=/^[a-zA-Z0-9]{3,}$/;
+            var emailRegex=/^[a-z0-9]+@[a-z]+\.[a-z]{2,4}$/;
+            //javascript@gmail.com
+            var passwordRegex=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,8}$/;
+
+            //regex methods
+            if (!usernameRegex.test(username)){
+                alert("Invalid Username");
+                // document.getElementById("three").innerHTML="Invalid usename";
+                // document.getElementById("three").style.color="red";
+                return false;
+            }
+            if (!emailRegex.test(email)) {
+                alert("Invalid email");
+                return false;
+            }
+            if (!passwordRegex.test(password)) {
+                alert("Invalid Password");
+                return false;
+            }
+            if (password !== confirmPassword) {
+                alert("password doesnot match");
+                return false;
+            }
+            else{
+                alert("Form Submitted Successfully!");
+                return true;
+            }
+        }
+        
+    </script>
+    <center>
+        <form onsubmit="return formValidation()" name="myForm">
+            <label>Username</label>
+            <input type="text" placeholder="Enter Username" name="username"/><!--<p id="three"></p> -->
+            <label>Email</label>
+            <input type="email" placeholder="Enter email" name="email"/>
+            <label>Password</label>
+            <input type="password" placeholder="Enter password" name="password"/>
+            <label>Confirm password</label>
+            <input type="password" placeholder="Enter confirm password" name="confirmPassword"/><br/>
+            <button type="submit">Submit</button>
+        </form>
+    </center>
+
+</body>
+</html>
