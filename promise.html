@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+
+<body>
+    <script>
+        //Intervals - setInterval,setTimeout,clearInterval,clearTimeout
+        function hello(){
+            console.log("Hi Raghava");
+        } 
+        // setInterval(hello,3000);
+
+        // let intervalId=setInterval(hello,1000);
+        // setTimeout(()=>{
+        //     clearInterval(intervalId);
+        //     console.log("timer stopped");
+        // },5000)
+
+        let intervalId=setInterval(hello,1000);
+        setTimeout(()=>{
+            clearTimeout(intervalId);
+            console.log("timer stopped");
+        })
+
+
+
+    </script>
+
+
+    <!-- <script>
+        // call back functions--if 2 funs or more without calling the second fun we print in the second func result in first function call.
+        function fun1(cbf) {           //cbf call back function
+            console.log("Hello");
+            cbf(2, 3, 9);
+        }
+        fun1(fun2);
+        function fun2(a, b, d) {
+            c = a + b + d;
+            console.log(c)
+            console.log("Everyone");
+        }
+        // fun2();
+    </script> -->
+
+
+    <!-- we manage the API calls, then promises use -->
+    <!-- <script>
+        var a=new Promise(function(resolve,reject){
+            var b=false;
+            // var b=true;
+            if (b){
+                resolve("it is correct vslue");
+            }
+            else{
+                reject("it is wrong value");
+            }
+        });
+        // console.log(a);
+        a.then((val)=>{
+            console.log(val);//we want result only the use then and catch. then is for true value
+        })
+        a.catch((val)=>{
+            console.log(val);//catch is for false value
+        })
+    </script> -->
+</body>
+
+</html>
